@@ -1,0 +1,101 @@
+.page-title {
+  font-weight: 700;
+  color: #ff6f91;
+}
+
+/* Buton adăugare */
+.btn-add {
+  background-color: #ffb3c6;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px 18px;
+  border: none;
+}
+
+/* Header tabel */
+.table-header {
+  background-color: #ffe4ec;
+  color: #d64f73;
+}
+
+/* Status */
+.status {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.status.activ {
+  background-color: #caffbf;
+  color: #1b4332;
+}
+
+.status.ocupat {
+  background-color: #ffd6a5;
+  color: #7f4f24;
+}
+
+/* Butoane */
+.btn-status {
+  background-color: #bde0fe;
+  border: none;
+  border-radius: 8px;
+  margin-right: 6px;
+}
+
+.btn-delete {
+  background-color: #ffadad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  width: 360px;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.modal-title {
+  font-weight: 700;
+  color: #ff6f91;
+  margin-bottom: 15px;
+}
+
+.btn-save {
+  background-color: #fcc9e2;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn-save:hover {
+  background-color: #f389ba;
+}
+
+.btn-cancel {
+  background-color: #ffadad;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  margin-right: 10px;
+}
+
+.btn-cancel{
+  background-color: #adc7f0;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  margin-right: 10px;
+}

@@ -1,0 +1,126 @@
+<div class="container">
+
+  <h2 class="page-title text-center mb-4">Livratori</h2>
+
+    @if (alertMsg) {
+  <div class="alert mt-3"
+       [class.alert-success]="alertType==='success'"
+       [class.alert-danger]="alertType==='danger'">
+    {{ alertMsg }}
+  </div>
+}
+
+  <div class="text-end mb-3">
+    <button class="btn btn-add" (click)="showAddLivrator = true">
+      + Adaugă livrator
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm">
+      <thead class="table-header">
+        <tr>
+          <th>ID</th>
+          <th>Nume</th>
+          <th>Telefon</th>
+          <th>Status</th>
+          <th>Acțiuni</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (l of livratori; track l.id) {
+          <tr>
+            <td>{{ l.id }}</td>
+            <td>{{ l.nume }}</td>
+            <td>{{ l.telefon }}</td>
+
+            <td>
+              <span class="status"
+                    [class.activ]="l.status === 'Activ'"
+                    [class.ocupat]="l.status === 'Ocupat'">
+                {{ l.status }}
+              </span>
+            </td>
+
+            <td class="d-flex gap-2">
+              <button class="btn btn-sm btn-status"
+                      (click)="schimbaStatus(l)">
+                Status
+              </button>
+
+              <button class="btn btn-sm btn-delete"
+                      (click)="cereStergere(l.id)">
+                Șterge
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MODAL ADAUGĂ LIVRATOR -->
+@if (showAddLivrator) {
+<div class="modal-overlay">
+  <div class="modal-content">
+
+    <h3 class="modal-title">Adaugă livrator</h3>
+
+    <label>Nume</label>
+    <input class="form-control"
+           [(ngModel)]="newLivrator.nume">
+
+    <label class="mt-3">Telefon</label>
+    <input type="text" class="form-control"
+             [(ngModel)]="newLivrator.telefon"
+             name="telefon"
+             required
+             maxlength="10"
+             (input)="validateNumbers($event)">
+
+    <label class="mt-3">Status</label>
+    <select class="form-control"
+            [(ngModel)]="newLivrator.status">
+      <option>Activ</option>
+      <option>Ocupat</option>
+    </select>
+
+    <div class="text-end mt-4 d-flex justify-content-end gap-2">
+      <button class="btn btn-cancel"
+              (click)="showAddLivrator = false">
+        Renunță
+      </button>
+      <button class="btn btn-save"
+              (click)="adaugaLivrator()">
+        Salvează
+      </button>
+    </div>
+
+  </div>
+</div>
+}
+
+<!-- MODAL CONFIRMARE ȘTERGERE -->
+@if (showConfirmDelete) {
+<div class="modal-overlay">
+  <div class="modal-content">
+
+    <h3 class="modal-title">Confirmare ștergere</h3>
+    <p>Ești sigură că vrei să ștergi acest livrator?</p>
+
+    <div class="text-end mt-4 d-flex justify-content-end gap-2">
+      <button class="btn btn-cancel"
+              (click)="anuleazaStergere()">
+        Renunță
+      </button>
+      <button class="btn btn-delete"
+              (click)="confirmaStergere()">
+        Șterge
+      </button>
+    </div>
+
+  </div>
+</div>
+}

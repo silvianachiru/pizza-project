@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #ffe4f0 !important;
+  border-bottom: 2px solid #ffb6d1;
+}
+
+.navbar-brand {
+  color: #d63384 !important;
+  font-weight: 600;
+}
+
+.nav-link {
+  color: #b3006b !important;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  color: #ff4da6 !important;
+}
+
+.nav-link,
+.navbar-brand {
+  cursor: pointer !important;
+}

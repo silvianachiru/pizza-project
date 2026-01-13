@@ -1,0 +1,192 @@
+<div class="container">
+
+  <h2 class="page-title text-center mb-4">Lista Clienților</h2>
+
+      @if (alertMsg) {
+  <div class="alert mt-3"
+       [class.alert-success]="alertType==='success'"
+       [class.alert-danger]="alertType==='danger'">
+    {{ alertMsg }}
+  </div>
+}
+
+  <div class="text-end mb-3">
+    <button class="btn btn-add-client" (click)="showAddClient = true">
+      + Adaugă Client
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm clienti-table">
+      <thead class="table-header">
+        <tr>
+          <th>ID</th>
+          <th>Nume</th>
+          <th>Telefon</th>
+          <th>Adresa</th>
+          <th>Data nașterii</th>
+          <th>Email</th>
+          <th>Acțiuni</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (c of clienti; track c.id) {
+          <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.address }}</td>
+            <td>{{ c.data_nastere }}</td>
+            <td>{{ c.email }}</td>
+            <td>
+              <button class="btn btn-sm btn-edit" (click)="openEdit(c)">Edit</button>
+              <button class="btn btn-sm btn-delete" (click)="openDeleteConfirm(c.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+@if (showAddClient) {
+<div class="modal-overlay">
+  <div class="modal-content">
+
+    <h3 class="modal-title">Adaugă Client Nou</h3>
+
+    <form (submit)="saveClient($event)">
+
+      <label>Nume</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="newClient.name" name="name" required placeholder="Ex: Popescu Ion" >
+
+      <label class="mt-3">Telefon</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="newClient.phone"
+             name="phone"
+             required
+             maxlength="10"
+             placeholder="Ex: 07XXXXXXXX"
+             (input)="validateNumbers($event, 'add')">
+
+      <label class="mt-3">Adresa</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="newClient.address" name="address" required placeholder="Stradă, număr, bloc...">
+    
+      <div class="mt-3">
+        <label class="form-label">Data nașterii</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="newClient.data_nastere"
+          name="data_nastere">
+      </div>
+
+      <div class="mt-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="newClient.email"
+          name="email"
+          placeholder="Ex: client@exemplu.ro">
+      </div>
+
+      <div class="text-end mt-4">
+        <button type="button" class="btn btn-cancel"
+                (click)="showAddClient = false">
+          Renunță
+        </button>
+        <button type="submit" class="btn btn-save">
+          Salvează
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+}
+
+@if (showEditClient) {
+<div class="modal-overlay">
+  <div class="modal-content">
+
+    <h3 class="modal-title">Editează Client</h3>
+
+    <form (submit)="saveEdit($event)">
+
+      <label>Nume</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="editClient.name" name="edit_name" required>
+
+      <label class="mt-3">Telefon</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="editClient.phone"
+             name="edit_phone"
+             required
+             maxlength="10"
+             (input)="validateNumbers($event, 'edit')">
+
+      <label class="mt-3">Adresa</label>
+      <input type="text" class="form-control"
+             [(ngModel)]="editClient.address" name="edit_address" required>
+
+      <div class="mt-3">
+        <label class="form-label">Data nașterii</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="editClient.data_nastere"
+          name="edit_data_nastere">
+      </div>
+
+      <div class="mt-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="editClient.email"
+          name="edit_email">
+      </div>
+
+      <div class="text-end mt-4">
+        <button type="button" class="btn btn-cancel"
+                (click)="cancelEdit()">
+          Renunță
+        </button>
+        <button type="submit" class="btn btn-save">
+          Salvează
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+}
+
+@if (showDeleteConfirm) {
+<div class="modal-overlay">
+  <div class="modal-content">
+
+    <h3 class="modal-title">Confirmare ștergere</h3>
+    <p>Sigur vrei să ștergi acest client?</p>
+
+    <div class="text-end mt-4">
+      <button class="btn btn-cancel" (click)="cancelDeleteClient()">
+        Renunță
+      </button>
+      <button class="btn btn-delete" (click)="confirmDeleteClient()">
+        Șterge
+      </button>
+    </div>
+
+  </div>
+</div>
+}

@@ -1,0 +1,64 @@
+.card {
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease-in-out;
+}
+
+#creeaza_comanda {
+  background-color: #e5989b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-pastel {
+  display: inline-block;
+  padding: 8px 10px;      
+  font-size: 1rem;       
+  font-weight: 600;
+  border-radius: 10px;    
+  width: 50%;         
+  margin: 0 auto;
+}
+
+.btn-pink {
+  background-color: #ffb3c6;
+  color: #6a0032;
+}
+.btn-pink:hover {
+  background-color: #ffa1b8;
+  transform: translateY(-3px);
+}
+
+.btn-purple {
+  background-color: #c8b6ff;
+  color: #3e1f77;
+}
+.btn-purple:hover {
+  background-color: #b9a2ff;
+  transform: translateY(-3px);
+}
+
+.btn-mint {
+  background-color: #bde0fe;
+  color: #0a3d62;
+}
+.btn-mint:hover {
+  background-color: #a7d6ff;
+  transform: translateY(-3px);
+}
+
+.feature-card {
+  border-radius: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}

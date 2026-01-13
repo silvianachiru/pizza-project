@@ -1,0 +1,67 @@
+<div class="d-flex align-items-center justify-content-center text-center text-white"
+     style="background-image: url('assets/images/home_page_pizza.jpg');
+       background-size: cover;
+       background-position: center;
+       height: 400px;">
+  
+  <div>
+    <h1 class="display-4 fw-bold">Bine ai venit!</h1>
+    <p class="lead">Administrează comenzile rapid și ușor.</p>
+    <a routerLink="/comenzi" id="creeaza_comanda" class="btn btn-lg">Creează comandă</a>
+  </div>
+
+</div>
+
+<!-- FEATURES SECTION -->
+<div class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">Ce poți face aici?</h2>
+
+  <div class="row g-4">
+
+    <!-- Card 1 - Clienți -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100 feature-card">
+        <div class="card-body text-center d-flex flex-column justify-content-between">
+          <h5 class="card-title fw-bold">Gestionează Clienții</h5>
+          <p class="card-text">
+            Vizualizezi, adaugi și administrezi clienți rapid și ușor.
+          </p>
+          <a routerLink="/clienti" class="btn btn-pastel btn-pink">
+            Vezi Clienți
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 - Comenzi -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100 feature-card">
+        <div class="card-body text-center d-flex flex-column justify-content-between">
+          <h5 class="card-title fw-bold">Administrează Comenzile</h5>
+          <p class="card-text">
+            Creează comenzi noi și urmărește comenzile existente.
+          </p>
+          <a routerLink="/comenzi" class="btn btn-pastel btn-purple">
+            Vezi Comenzi
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 - Pizza -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100 feature-card">
+        <div class="card-body text-center d-flex flex-column justify-content-between">
+          <h5 class="card-title fw-bold">Editează Meniul</h5>
+          <p class="card-text">
+            Actualizează tipurile de pizza și ingredientele lor.
+          </p>
+          <a routerLink="/pizza" class="btn btn-pastel btn-mint">
+            Meniu Pizza
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

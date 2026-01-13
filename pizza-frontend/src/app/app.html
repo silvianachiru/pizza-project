@@ -1,0 +1,41 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+      <div class="container">
+
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/images/pizza.png" width="30" class="d-inline-block align-text-top" />
+      Pizzarella
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/clienti">Clienți</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/comenzi">Comenzi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/livratori">Livratori</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pizza">Pizza</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container mt-4" style="padding-top: 50px;">
+  <router-outlet></router-outlet>
+</div>
